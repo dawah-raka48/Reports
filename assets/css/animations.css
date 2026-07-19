@@ -1,0 +1,184 @@
+/* ==========================================
+   ANIMATIONS.CSS
+   Weekly Reports System
+========================================== */
+
+/* ========= Transition ========= */
+
+*{
+    transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition),
+        opacity var(--transition);
+}
+
+/* ========= Fade ========= */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/* ========= Slide Up ========= */
+
+@keyframes slideUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ========= Scale ========= */
+
+@keyframes scaleIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.95);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ========= Floating ========= */
+
+@keyframes floating{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+/* ========= Rotate ========= */
+
+@keyframes rotateSlow{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ========= Glow ========= */
+
+@keyframes glow{
+
+    0%{
+
+        box-shadow:0 0 0 rgba(37,99,235,0);
+
+    }
+
+    50%{
+
+        box-shadow:0 0 25px rgba(37,99,235,.25);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 rgba(37,99,235,0);
+
+    }
+
+}
+
+/* ========= Login ========= */
+
+.login-header{
+
+    animation:slideUp .7s ease;
+
+}
+
+.login-card{
+
+    animation:scaleIn .8s ease;
+
+}
+
+.footer{
+
+    animation:fadeIn 1s ease;
+
+}
+
+/* ========= Background ========= */
+
+.circle{
+
+    animation:floating 8s ease-in-out infinite;
+
+}
+
+.circle:nth-child(2){
+
+    animation-delay:2s;
+
+}
+
+.circle:nth-child(3){
+
+    animation-delay:4s;
+
+}
