@@ -1,0 +1,124 @@
+/* ==========================================
+   Weekly Reports System
+   Design System v1.0
+========================================== */
+
+:root{
+
+    /* Typography */
+
+    --font-family: "Cairo", sans-serif;
+
+    --font-size-xs:12px;
+    --font-size-sm:14px;
+    --font-size-md:16px;
+    --font-size-lg:18px;
+    --font-size-xl:22px;
+    --font-size-2xl:28px;
+    --font-size-3xl:36px;
+
+    /* Font Weight */
+
+    --fw-light:300;
+    --fw-normal:400;
+    --fw-medium:500;
+    --fw-semibold:600;
+    --fw-bold:700;
+    --fw-black:800;
+
+    /* Radius */
+
+    --radius-sm:8px;
+    --radius-md:12px;
+    --radius-lg:18px;
+    --radius-xl:24px;
+    --radius-full:999px;
+
+    /* Shadows */
+
+    --shadow-sm:0 4px 12px rgba(0,0,0,.05);
+
+    --shadow-md:0 10px 25px rgba(0,0,0,.08);
+
+    --shadow-lg:0 20px 40px rgba(0,0,0,.12);
+
+    /* Animation */
+
+    --transition:.30s ease;
+
+    /* Layout */
+
+    --header-height:70px;
+
+    --sidebar-width:260px;
+
+    --container-width:1200px;
+
+    /* Colors */
+
+    --primary:#2563EB;
+
+    --primary-hover:#1D4ED8;
+
+    --success:#22C55E;
+
+    --warning:#F59E0B;
+
+    --danger:#EF4444;
+
+    --info:#06B6D4;
+
+    /* Light */
+
+    --background:#F8FAFC;
+
+    --surface:#FFFFFF;
+
+    --surface-alt:#F1F5F9;
+
+    --text:#0F172A;
+
+    --text-light:#64748B;
+
+    --border:#E2E8F0;
+
+    /* Glass */
+
+    --glass-bg:rgba(255,255,255,.60);
+
+    --glass-border:rgba(255,255,255,.25);
+
+    --blur:18px;
+
+}
+
+
+/* ==========================================
+            Dark Theme
+========================================== */
+
+[data-theme="dark"]{
+
+    --background:#0F172A;
+
+    --surface:#1E293B;
+
+    --surface-alt:#334155;
+
+    --text:#F8FAFC;
+
+    --text-light:#CBD5E1;
+
+    --border:#475569;
+
+    --glass-bg:rgba(30,41,59,.70);
+
+    --glass-border:rgba(255,255,255,.08);
+
+    --shadow-sm:0 4px 12px rgba(0,0,0,.25);
+
+    --shadow-md:0 10px 30px rgba(0,0,0,.35);
+
+    --shadow-lg:0 20px 50px rgba(0,0,0,.45);
+
+}
