@@ -1,0 +1,51 @@
+/* ==========================================
+   RESPONSIVE.CSS
+========================================== */
+
+/* ========= Tablet ========= */
+
+@media (min-width:768px){
+
+    .login-card{
+
+        max-width:460px;
+
+    }
+
+}
+
+/* ========= Laptop ========= */
+
+@media (min-width:992px){
+
+    .login-card{
+
+        max-width:480px;
+
+    }
+
+}
+
+/* ========= Desktop ========= */
+
+@media (min-width:1200px){
+
+    .login-card{
+
+        max-width:500px;
+
+    }
+
+}
+
+/* ========= Large Screen ========= */
+
+@media (min-width:1440px){
+
+    body{
+
+        font-size:17px;
+
+    }
+
+}
