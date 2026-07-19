@@ -8,23 +8,21 @@ class ApiService {
 
         try {
 
+            const body = new URLSearchParams();
+
+            body.append("action", action);
+
+            Object.keys(data).forEach(key => {
+
+                body.append(key, data[key]);
+
+            });
+
             const response = await fetch(CONFIG.API_URL, {
 
                 method: "POST",
 
-                headers: {
-
-                    "Content-Type": "application/json"
-
-                },
-
-                body: JSON.stringify({
-
-                    action,
-
-                    ...data
-
-                })
+                body: body
 
             });
 
