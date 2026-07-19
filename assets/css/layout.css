@@ -1,0 +1,151 @@
+/* ==========================================
+   LAYOUT.CSS
+   Weekly Reports System
+========================================== */
+
+/* ---------- Body ---------- */
+
+body{
+    min-height:100vh;
+    background:var(--background);
+}
+
+/* ---------- Main Container ---------- */
+
+.container{
+
+    width:min(100% - 32px,var(--container-width));
+
+    margin-inline:auto;
+
+}
+
+/* ---------- Login Page ---------- */
+
+.login-container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 20px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ---------- Login Header ---------- */
+
+.login-header{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:30px;
+
+}
+
+/* ---------- Login Card ---------- */
+
+.login-card{
+
+    width:100%;
+
+    max-width:420px;
+
+}
+
+/* ---------- Form ---------- */
+
+#loginForm{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+/* ---------- Input Group ---------- */
+
+.input-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+/* ---------- Remember ---------- */
+
+.remember-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+/* ---------- Footer ---------- */
+
+.footer{
+
+    margin-top:30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:6px;
+
+    text-align:center;
+
+}
+
+/* ---------- Theme Button ---------- */
+
+.theme-toggle{
+
+    position:fixed;
+
+    top:20px;
+
+    left:20px;
+
+    z-index:999;
+
+}
+
+/* ---------- Background ---------- */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:1;
+
+}
