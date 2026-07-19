@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const form = document.getElementById("loginForm");
 
-    form.addEventListener("submit", async function (event) {
+    form.addEventListener("submit", async (event) => {
 
         event.preventDefault();
 
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-        const result = await ApiService.request("login", {
+        const response = await ApiService.request("login", {
 
             username,
 
@@ -38,52 +38,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
-        console.log(result);
+        console.log(response);
 
-        if (result.success) {
+        if (!response.success) {
 
-            localStorage.setItem(
+            alert(response.message);
 
-                "session",
-
-                JSON.stringify(result.user)
-
-            );
-
-            switch (result.user.role) {
-
-                case "owner":
-
-                    window.location.href =
-                        "pages/admin/dashboard.html";
-
-                    break;
-
-                case "manager":
-
-                    window.location.href =
-                        "pages/manager/dashboard.html";
-
-                    break;
-
-                case "employee":
-
-                    window.location.href =
-                        "pages/employee/dashboard.html";
-
-                    break;
-
-                default:
-
-                    alert("صلاحية غير معروفة");
-
-            }
+            return;
 
         }
 
-        else {
+        if (!response.data.success) {
 
-            alert(result.message);
+            alert(response.data.message);
+
+            return;
+
+        }
+
+        const user = response.data.user;
+
+        localStorage.setItem(
+
+            "session",
+
+            JSON.stringify(user)
+
+        );
+
+        switch (user.role) {
+
+            case "owner":
+
+                window.location.href = "pages/admin/dashboard.html";
+
+                break;
+
+            case "manager":
+
+                window.location.href = "pages/manager/dashboard.html";
+
+                break;
+
+            case "employee":
+
+                window.location.href = "pages/employee/dashboard.html";
+
+                break;
+
+            default:
+
+                alert("صلاحية غير صحيحة");
 
         }
 
