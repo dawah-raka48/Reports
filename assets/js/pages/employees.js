@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initializeButtons();
 
     loadEmployees();
-
+   
+    loadDepartments();
 });
 
 
@@ -486,5 +487,58 @@ function logout() {
     window.location.href =
 
         "../../index.html";
+
+}
+/* ==========================
+   Load Departments
+========================== */
+
+async function loadDepartments(){
+
+    const response = await ApiService.request(
+
+        "getDepartments"
+
+    );
+
+    if(
+
+        !response.success ||
+
+        !response.data.success
+
+    ){
+
+        return;
+
+    }
+
+    const select = document.getElementById(
+
+        "department"
+
+    );
+
+    select.innerHTML="";
+
+    response.data.departments.forEach(department=>{
+
+        if(!department.isActive){
+
+            return;
+
+        }
+
+        select.innerHTML+=`
+
+            <option value="${department.departmentId}">
+
+                ${department.departmentName}
+
+            </option>
+
+        `;
+
+    });
 
 }
