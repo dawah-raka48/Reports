@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+تقارير القسم
+</title>
+
+<link rel="stylesheet"
+href="../../assets/css/core/variables.css">
+
+<link rel="stylesheet"
+href="../../assets/css/core/reset.css">
+
+<link rel="stylesheet"
+href="../../assets/css/core/theme.css">
+
+<link rel="stylesheet"
+href="../../assets/css/core/components.css">
+
+<link rel="stylesheet"
+href="../../assets/css/pages/manager-dashboard.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="page-header">
+
+<button
+id="backBtn"
+class="icon-btn">
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</button>
+
+<div>
+
+<h1>
+
+تقارير القسم
+
+</h1>
+
+<p id="departmentName">
+
+...
+
+</p>
+
+</div>
+
+</header>
+
+<section
+class="stats-row">
+
+<div class="stat-card">
+
+<span>
+
+إجمالي التقارير
+
+</span>
+
+<h2
+id="reportsCount">
+
+0
+
+</h2>
+
+</div>
+
+<div class="stat-card">
+
+<span>
+
+بانتظار المراجعة
+
+</span>
+
+<h2
+id="pendingCount">
+
+0
+
+</h2>
+
+</div>
+
+<div class="stat-card">
+
+<span>
+
+تم اعتمادها
+
+</span>
+
+<h2
+id="approvedCount">
+
+0
+
+</h2>
+
+</div>
+
+</section>
+<section class="reports-section">
+
+<div
+id="reportsContainer"
+class="reports-container">
+
+<div class="empty-state">
+
+<i class="fa-regular fa-folder-open"></i>
+
+<h3>
+
+لا توجد تقارير
+
+</h3>
+
+<p>
+
+لم يتم رفع أي تقارير لهذا القسم حتى الآن.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+<script src="../../assets/js/core/config.js"></script>
+
+<script src="../../assets/js/core/storage.js"></script>
+
+<script src="../../assets/js/core/api.js"></script>
+
+<script src="../../assets/js/core/auth.js"></script>
+
+<script src="../../assets/js/pages/manager-reports.js"></script>
+
+</body>
+
+</html>
