@@ -5,249 +5,308 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>لوحة المدير</title>
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    <!-- Fonts -->
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- Global CSS -->
 
-    <link rel="stylesheet"
-          href="../../assets/css/variables.css">
+    <link rel="stylesheet" href="../../assets/css/variables.css">
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/animations.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <!-- Dashboard -->
 
     <link rel="stylesheet"
-          href="../../assets/css/reset.css">
-
-    <link rel="stylesheet"
-          href="../../assets/css/layout.css">
-
-    <link rel="stylesheet"
-          href="../../assets/css/components.css">
-
-    <link rel="stylesheet"
-          href="../../assets/css/animations.css">
-
-    <link rel="stylesheet"
-          href="../../assets/css/responsive.css">
-
-    <link rel="stylesheet"
-          href="../../assets/css/style.css">
-
-    <!-- Dashboard CSS -->
-
-    <link rel="stylesheet"
-          href="dashboard.css">
+          href="../../assets/css/admin-dashboard.css">
 
 </head>
 
 <body>
 
-<header class="dashboard-header">
+<div class="dashboard-wrapper">
 
-    <div class="header-left">
+    <!-- Header -->
 
-        <img src="../../assets/images/logo.png"
-             class="header-logo"
-             alt="Logo">
+    <header class="dashboard-header">
 
-        <div>
+        <div class="header-left">
 
-            <h2>
+            <img
+                src="../../assets/images/logo.png"
+                class="header-logo"
+                alt="Logo">
 
-                لوحة المدير
+            <div class="header-title">
 
-            </h2>
+                <h2>لوحة المدير</h2>
 
-            <span>
+                <span>Weekly Reports System</span>
 
-                Weekly Reports System
-
-            </span>
-
-        </div>
-
-    </div>
-
-    <div class="header-right">
-
-        <div id="clock">
-
-            --:--:--
+            </div>
 
         </div>
 
-        <button id="themeToggle">
+        <div class="header-right">
 
-            <i class="fa-solid fa-moon"></i>
+            <div class="clock-box">
 
-        </button>
+                <i class="fa-regular fa-clock"></i>
 
-        <button id="logoutBtn">
+                <span id="clock">
 
-            <i class="fa-solid fa-right-from-bracket"></i>
+                    --:--:--
 
-        </button>
+                </span>
 
-    </div>
+            </div>
 
-</header>
+            <button
+                id="themeToggle"
+                class="header-btn">
 
-<main class="dashboard">
+                <i class="fa-solid fa-moon"></i>
 
-    <section class="welcome-card">
+            </button>
 
-        <h1>
+            <button
+                id="logoutBtn"
+                class="header-btn danger">
 
-            السلام عليكم
+                <i class="fa-solid fa-right-from-bracket"></i>
 
-        </h1>
+            </button>
 
-        <h3 id="adminName">
+        </div>
 
-            ...
+    </header>
 
-        </h3>
+    <!-- Main -->
 
-    </section>
+    <main class="dashboard">
 
-    <section class="cards">
+        <!-- Welcome -->
 
-        <button class="menu-card"
+        <section class="welcome-card">
+
+            <div class="welcome-content">
+
+                <span class="welcome-text">
+
+                    السلام عليكم 👋
+
+                </span>
+
+                <h1 id="adminName">
+
+                    ...
+
+                </h1>
+
+                <p>
+
+                    مرحباً بك في لوحة تحكم نظام التقارير الأسبوعية.
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Menu -->
+
+        <section class="cards">
+
+            <button
+                class="menu-card"
                 id="employeesBtn">
 
-            <i class="fa-solid fa-users"></i>
+                <div class="card-icon">
 
-            <h3>
+                    <i class="fa-solid fa-users"></i>
 
-                الموظفون
+                </div>
 
-            </h3>
+                <h3>
 
-        </button>
+                    الموظفون
 
-        <button class="menu-card"
+                </h3>
+
+                <p>
+
+                    إدارة جميع الموظفين
+
+                </p>
+
+            </button>
+
+            <button
+                class="menu-card"
                 id="departmentsBtn">
 
-            <i class="fa-solid fa-building"></i>
+                <div class="card-icon">
 
-            <h3>
+                    <i class="fa-solid fa-building"></i>
 
-                الأقسام
+                </div>
 
-            </h3>
+                <h3>
 
-        </button>
+                    الأقسام
 
-        <button class="menu-card"
+                </h3>
+
+                <p>
+
+                    إدارة أقسام الجمعية
+
+                </p>
+
+            </button>
+
+            <button
+                class="menu-card"
                 id="reportsBtn">
 
-            <i class="fa-solid fa-file-lines"></i>
+                <div class="card-icon">
 
-            <h3>
+                    <i class="fa-solid fa-file-lines"></i>
 
-                التقارير
+                </div>
 
-            </h3>
+                <h3>
 
-        </button>
+                    التقارير
 
-        <button class="menu-card"
+                </h3>
+
+                <p>
+
+                    متابعة التقارير الأسبوعية
+
+                </p>
+
+            </button>
+
+            <button
+                class="menu-card"
                 id="settingsBtn">
 
-            <i class="fa-solid fa-gear"></i>
+                <div class="card-icon">
 
-            <h3>
+                    <i class="fa-solid fa-gear"></i>
 
-                الإعدادات
+                </div>
 
-            </h3>
+                <h3>
 
-        </button>
+                    الإعدادات
 
-    </section>
+                </h3>
 
-    <section class="statistics">
+                <p>
 
-        <div class="stat-card">
+                    إعدادات النظام
 
-            <span>
+                </p>
 
-                عدد الموظفين
+            </button>
 
-            </span>
+        </section>
 
-            <h2 id="employeesCount">
+        <!-- Statistics -->
 
-                0
+        <section class="statistics">
 
-            </h2>
+            <div class="stat-card">
 
-        </div>
+                <span>
 
-        <div class="stat-card">
+                    عدد الموظفين
 
-            <span>
+                </span>
 
-                عدد الأقسام
+                <h2 id="employeesCount">
 
-            </span>
+                    0
 
-            <h2 id="departmentsCount">
+                </h2>
 
-                0
+            </div>
 
-            </h2>
+            <div class="stat-card">
 
-        </div>
+                <span>
 
-        <div class="stat-card">
+                    عدد الأقسام
 
-            <span>
+                </span>
 
-                تقارير الأسبوع
+                <h2 id="departmentsCount">
 
-            </span>
+                    0
 
-            <h2 id="reportsCount">
+                </h2>
 
-                0
+            </div>
 
-            </h2>
+            <div class="stat-card">
 
-        </div>
+                <span>
 
-        <div class="stat-card">
+                    تقارير هذا الأسبوع
 
-            <span>
+                </span>
 
-                المتأخرون
+                <h2 id="reportsCount">
 
-            </span>
+                    0
 
-            <h2 id="lateCount">
+                </h2>
 
-                0
+            </div>
 
-            </h2>
+            <div class="stat-card">
 
-        </div>
+                <span>
 
-    </section>
+                    المتأخرون
 
-</main>
+                </span>
+
+                <h2 id="lateCount">
+
+                    0
+
+                </h2>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- Scripts -->
 
 <script src="../../config/config.js"></script>
 
@@ -259,7 +318,7 @@
 
 <script src="../../assets/js/modules/theme.js"></script>
 
-<script src="dashboard.js"></script>
+<script src="../../assets/js/pages/admin-dashboard.js"></script>
 
 </body>
 
