@@ -103,15 +103,13 @@ function initializeButtons(){
 
         );
 
-document
+    document
     .getElementById("newReportBtn")
     .addEventListener(
         "click",
         ()=>{
 
-            alert
-            
-            ("سيتم إنشاء صفحة تقاريري.");
+            window.location.href="upload-report.html";
 
         }
     );
@@ -126,7 +124,9 @@ document
 
             ()=>{
 
-                window.location.href="my-reports.html";"سيتم إنشاء صفحة تقاريري."
+                alert(
+
+                    "سيتم إنشاء صفحة تقاريري."
 
                 );
 
