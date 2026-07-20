@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>لوحة الموظف</title>
+
+    <!-- Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Icons -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Global CSS -->
+
+    <link rel="stylesheet" href="../../assets/css/variables.css">
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/animations.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <!-- Employee CSS -->
+
+    <link rel="stylesheet"
+          href="../../assets/css/employee-dashboard.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-wrapper">
+
+    <!-- Header -->
+
+    <header class="dashboard-header">
+
+        <div class="header-left">
+
+            <img
+                src="../../assets/images/logo.png"
+                class="header-logo"
+                alt="Logo">
+
+            <div class="header-title">
+
+                <h2>
+
+                    لوحة الموظف
+
+                </h2>
+
+                <span>
+
+                    Weekly Reports System
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="header-right">
+
+            <div class="clock-box">
+
+                <i class="fa-regular fa-clock"></i>
+
+                <span id="clock">
+
+                    --:--:--
+
+                </span>
+
+            </div>
+
+            <button
+                id="themeToggle"
+                class="header-btn">
+
+                <i class="fa-solid fa-moon"></i>
+
+            </button>
+
+            <button
+                id="logoutBtn"
+                class="header-btn danger">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <main class="dashboard">
+
+        <!-- Welcome -->
+
+        <section class="welcome-card">
+
+            <span class="welcome-text">
+
+                أهلاً بك
+
+            </span>
+
+            <h1 id="employeeName">
+
+                ...
+
+            </h1>
+
+            <p>
+
+                قسم
+
+                <strong id="departmentName">
+
+                    ...
+
+                </strong>
+
+            </p>
+
+        </section>
+
+        <!-- Menu -->
+
+        <section class="cards">
+
+            <button
+                class="menu-card"
+                id="newReportBtn">
+
+                <div class="card-icon">
+
+                    <i class="fa-solid fa-file-circle-plus"></i>
+
+                </div>
+
+                <h3>
+
+                    رفع التقرير
+
+                </h3>
+
+                <p>
+
+                    إنشاء التقرير الأسبوعي
+
+                </p>
+
+            </button>
+
+            <button
+                class="menu-card"
+                id="myReportsBtn">
+
+                <div class="card-icon">
+
+                    <i class="fa-solid fa-folder-open"></i>
+
+                </div>
+
+                <h3>
+
+                    تقاريري
+
+                </h3>
+
+                <p>
+
+                    عرض جميع تقاريري
+
+                </p>
+
+            </button>
+
+        </section>
+
+        <!-- Statistics -->
+
+        <section class="statistics">
+
+            <div class="stat-card">
+
+                <span>
+
+                    تقارير هذا الأسبوع
+
+                </span>
+
+                <h2 id="reportsCount">
+
+                    0
+
+                </h2>
+
+            </div>
+
+            <div class="stat-card">
+
+                <span>
+
+                    آخر تقرير
+
+                </span>
+
+                <h2 id="lastReport">
+
+                    --
+
+                </h2>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="../../config/config.js"></script>
+
+<script src="../../assets/js/core/api.js"></script>
+
+<script src="../../assets/js/core/app.js"></script>
+
+<script src="../../assets/js/core/auth.js"></script>
+
+<script src="../../assets/js/modules/theme.js"></script>
+
+<script src="../../assets/js/pages/employee-dashboard.js"></script>
+
+</body>
+
+</html>
