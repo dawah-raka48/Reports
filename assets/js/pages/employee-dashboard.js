@@ -124,9 +124,7 @@ document
 
             ()=>{
 
-                alert(
-
-                    "سيتم إنشاء صفحة تقاريري."
+                window.location.href="my-reports.html";"سيتم إنشاء صفحة تقاريري."
 
                 );
 
