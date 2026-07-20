@@ -103,25 +103,16 @@ function initializeButtons(){
 
         );
 
-    document
+document
+    .getElementById("newReportBtn")
+    .addEventListener(
+        "click",
+        ()=>{
 
-        .getElementById("newReportBtn")
+            window.location.href="upload-report.html";
 
-        .addEventListener(
-
-            "click",
-
-            ()=>{
-
-                alert(
-
-                    "سنبدأ بناء صفحة رفع التقرير في المرحلة القادمة."
-
-                );
-
-            }
-
-        );
+        }
+    );
 
     document
 
