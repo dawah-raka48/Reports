@@ -109,7 +109,9 @@ document
         "click",
         ()=>{
 
-            window.location.href="upload-report.html";
+            alert
+            
+            ("سيتم إنشاء صفحة تقاريري.");
 
         }
     );
