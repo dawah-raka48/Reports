@@ -1,0 +1,426 @@
+/* ==========================================
+   UPLOAD REPORT
+========================================== */
+
+/* ==========================
+   Page
+========================== */
+
+.page{
+
+    width:min(100% - 40px,760px);
+
+    margin:30px auto;
+
+}
+
+/* ==========================
+   Header
+========================== */
+
+.page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:24px;
+
+}
+
+.page-header h2{
+
+    font-size:28px;
+
+    color:var(--text);
+
+    font-weight:700;
+
+}
+
+.header-btn{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:var(--surface);
+
+    color:var(--primary);
+
+    cursor:pointer;
+
+    transition:.30s;
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.header-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================
+   Employee Card
+========================== */
+
+.info-card{
+
+    background:var(--glass-bg);
+
+    backdrop-filter:blur(var(--blur));
+
+    border:1px solid var(--glass-border);
+
+    border-radius:24px;
+
+    padding:24px;
+
+    display:grid;
+
+    gap:18px;
+
+    margin-bottom:24px;
+
+}
+
+.info-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border-bottom:1px solid var(--border);
+
+    padding-bottom:12px;
+
+}
+
+.info-row:last-child{
+
+    border-bottom:none;
+
+    padding-bottom:0;
+
+}
+
+.info-row span{
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+}
+
+.info-row strong{
+
+    color:var(--text);
+
+    font-size:16px;
+
+    font-weight:700;
+
+}
+
+/* ==========================
+   Status Card
+========================== */
+
+.status-card{
+
+    border-radius:22px;
+
+    padding:20px;
+
+    margin-bottom:24px;
+
+    text-align:center;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    background:rgba(59,130,246,.12);
+
+    color:var(--primary);
+
+    border:1px solid rgba(59,130,246,.25);
+
+}
+/* ==========================
+   Upload Card
+========================== */
+
+.upload-card{
+
+    background:var(--glass-bg);
+
+    backdrop-filter:blur(var(--blur));
+
+    border:1px solid var(--glass-border);
+
+    border-radius:24px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+/* ==========================
+   Upload Box
+========================== */
+
+.upload-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:16px;
+
+    min-height:230px;
+
+    border:2px dashed var(--primary);
+
+    border-radius:22px;
+
+    cursor:pointer;
+
+    transition:.30s;
+
+    background:rgba(37,99,235,.05);
+
+}
+
+.upload-box:hover{
+
+    background:rgba(37,99,235,.10);
+
+    transform:translateY(-3px);
+
+}
+
+.upload-box i{
+
+    font-size:72px;
+
+    color:#e53935;
+
+}
+
+.upload-box h3{
+
+    font-size:22px;
+
+    color:var(--text);
+
+}
+
+.upload-box span{
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+}
+
+/* ==========================
+   File Input
+========================== */
+
+#pdfFile{
+
+    display:none;
+
+}
+
+/* ==========================
+   Selected File
+========================== */
+
+.selected-file{
+
+    margin-top:22px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    color:var(--text);
+
+    font-weight:600;
+
+    word-break:break-word;
+
+}
+
+/* ==========================
+   Upload Button
+========================== */
+
+.upload-btn{
+
+    width:100%;
+
+    margin-top:24px;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:linear-gradient(
+
+        135deg,
+
+        var(--primary),
+
+        var(--primary-light)
+
+    );
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.30s;
+
+}
+
+.upload-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.upload-btn:disabled{
+
+    opacity:.55;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+/* ==========================
+   Status Types
+========================== */
+
+.status-open{
+
+    background:#e8f5e9;
+
+    color:#2e7d32;
+
+    border:1px solid #81c784;
+
+}
+
+.status-closed{
+
+    background:#ffebee;
+
+    color:#c62828;
+
+    border:1px solid #ef9a9a;
+
+}
+
+.status-holiday{
+
+    background:#fff8e1;
+
+    color:#f57f17;
+
+    border:1px solid #ffd54f;
+
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media(max-width:768px){
+
+    .page{
+
+        width:calc(100% - 24px);
+
+    }
+
+    .page-header{
+
+        gap:15px;
+
+    }
+
+    .page-header h2{
+
+        font-size:22px;
+
+        text-align:center;
+
+    }
+
+    .upload-box{
+
+        min-height:190px;
+
+    }
+
+    .upload-box i{
+
+        font-size:58px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .info-row{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:6px;
+
+    }
+
+    .upload-btn{
+
+        height:52px;
+
+        font-size:16px;
+
+    }
+
+}
