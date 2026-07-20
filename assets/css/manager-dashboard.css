@@ -1,0 +1,649 @@
+/* ==========================================
+   MANAGER DASHBOARD
+   Weekly Reports System
+========================================== */
+
+/* ==========================
+   Wrapper
+========================== */
+
+.dashboard-wrapper{
+
+    min-height:100vh;
+
+    background:linear-gradient(
+        180deg,
+        var(--background),
+        var(--surface-alt)
+    );
+
+}
+
+/* ==========================
+   Header
+========================== */
+
+.dashboard-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 30px;
+
+    background:var(--glass-bg);
+
+    backdrop-filter:blur(var(--blur));
+
+    -webkit-backdrop-filter:blur(var(--blur));
+
+    border-bottom:1px solid var(--glass-border);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.header-logo{
+
+    width:56px;
+
+    height:56px;
+
+    object-fit:contain;
+
+}
+
+.header-title{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+
+.header-title h2{
+
+    font-size:22px;
+
+    color:var(--text);
+
+    font-weight:700;
+
+}
+
+.header-title span{
+
+    font-size:13px;
+
+    color:var(--text-light);
+
+}
+
+.header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+/* ==========================
+   Clock
+========================== */
+
+.clock-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:12px 18px;
+
+    border-radius:16px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.clock-box i{
+
+    color:var(--primary);
+
+}
+
+#clock{
+
+    color:var(--text);
+
+    font-weight:700;
+
+}
+
+/* ==========================
+   Header Buttons
+========================== */
+
+.header-btn{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    background:var(--surface);
+
+    color:var(--primary);
+
+    transition:.3s;
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.header-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.header-btn.danger{
+
+    color:var(--danger);
+
+}
+
+/* ==========================
+   Dashboard
+========================== */
+
+.dashboard{
+
+    width:min(100% - 40px,1200px);
+
+    margin:auto;
+
+    padding:30px 0 40px;
+
+}
+
+/* ==========================
+   Welcome
+========================== */
+
+.welcome-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--glass-bg);
+
+    backdrop-filter:blur(var(--blur));
+
+    border:1px solid var(--glass-border);
+
+    border-radius:28px;
+
+    padding:35px;
+
+    margin-bottom:28px;
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.welcome-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    border-radius:50%;
+
+    background:rgba(37,99,235,.08);
+
+    left:-80px;
+
+    top:-80px;
+
+}
+
+.welcome-text{
+
+    display:inline-block;
+
+    color:var(--primary);
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.welcome-card h1{
+
+    color:var(--text);
+
+    font-size:32px;
+
+    margin-bottom:10px;
+
+}
+
+.welcome-card p{
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+}
+/* ==========================
+   Menu Cards
+========================== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:24px;
+
+    margin-bottom:30px;
+
+}
+
+.menu-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--glass-bg);
+
+    backdrop-filter:blur(var(--blur));
+
+    -webkit-backdrop-filter:blur(var(--blur));
+
+    border:1px solid var(--glass-border);
+
+    border-radius:24px;
+
+    padding:28px;
+
+    text-align:right;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.menu-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+
+    height:150px;
+
+    border-radius:50%;
+
+    background:rgba(37,99,235,.08);
+
+    top:-60px;
+
+    left:-60px;
+
+    transition:.35s;
+
+}
+
+.menu-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--primary);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.menu-card:hover::before{
+
+    transform:scale(1.25);
+
+}
+
+.card-icon{
+
+    width:70px;
+
+    height:70px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:20px;
+
+    margin-bottom:20px;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-light)
+    );
+
+    color:#fff;
+
+    font-size:28px;
+
+    box-shadow:0 12px 30px rgba(37,99,235,.25);
+
+}
+
+.menu-card h3{
+
+    font-size:21px;
+
+    color:var(--text);
+
+    margin-bottom:10px;
+
+}
+
+.menu-card p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+    font-size:14px;
+
+}
+
+/* ==========================
+   Statistics
+========================== */
+
+.statistics{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:20px;
+
+}
+
+.stat-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--glass-bg);
+
+    backdrop-filter:blur(var(--blur));
+
+    -webkit-backdrop-filter:blur(var(--blur));
+
+    border:1px solid var(--glass-border);
+
+    border-radius:22px;
+
+    padding:24px;
+
+    transition:.35s;
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.stat-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:5px;
+
+    height:100%;
+
+    background:linear-gradient(
+
+        to bottom,
+
+        var(--primary),
+
+        var(--primary-light)
+
+    );
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.stat-card span{
+
+    display:block;
+
+    color:var(--text-light);
+
+    margin-bottom:14px;
+
+    font-size:14px;
+
+}
+
+.stat-card h2{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+}
+
+/* ==========================
+   Animation
+========================== */
+
+.dashboard-header,
+
+.welcome-card,
+
+.menu-card,
+
+.stat-card{
+
+    animation:fadeUp .45s ease both;
+
+}
+
+.cards .menu-card:nth-child(1){
+
+    animation-delay:.10s;
+
+}
+
+.cards .menu-card:nth-child(2){
+
+    animation-delay:.20s;
+
+}
+
+.statistics .stat-card:nth-child(1){
+
+    animation-delay:.30s;
+
+}
+
+.statistics .stat-card:nth-child(2){
+
+    animation-delay:.40s;
+
+}
+
+.statistics .stat-card:nth-child(3){
+
+    animation-delay:.50s;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media(max-width:768px){
+
+    .dashboard-header{
+
+        flex-direction:column;
+
+        gap:18px;
+
+        padding:20px;
+
+    }
+
+    .header-left,
+
+    .header-right{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .statistics{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .dashboard{
+
+        width:calc(100% - 24px);
+
+    }
+
+    .welcome-card{
+
+        padding:24px;
+
+    }
+
+    .welcome-card h1{
+
+        font-size:28px;
+
+    }
+
+    .header-logo{
+
+        width:48px;
+
+        height:48px;
+
+    }
+
+    .card-icon{
+
+        width:60px;
+
+        height:60px;
+
+        font-size:24px;
+
+    }
+
+}
