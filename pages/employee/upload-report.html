@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>رفع التقرير الأسبوعي</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Global CSS -->
+
+    <link rel="stylesheet"
+          href="../../assets/css/variables.css">
+
+    <link rel="stylesheet"
+          href="../../assets/css/reset.css">
+
+    <link rel="stylesheet"
+          href="../../assets/css/layout.css">
+
+    <link rel="stylesheet"
+          href="../../assets/css/components.css">
+
+    <link rel="stylesheet"
+          href="../../assets/css/animations.css">
+
+    <link rel="stylesheet"
+          href="../../assets/css/responsive.css">
+
+    <link rel="stylesheet"
+          href="../../assets/css/style.css">
+
+    <!-- Page CSS -->
+
+    <link rel="stylesheet"
+          href="../../assets/css/upload-report.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- Header -->
+
+    <header class="page-header">
+
+        <button
+            id="backBtn"
+            class="header-btn">
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+        <h2>
+
+            رفع التقرير الأسبوعي
+
+        </h2>
+
+        <button
+            id="themeToggle"
+            class="header-btn">
+
+            <i class="fa-solid fa-moon"></i>
+
+        </button>
+
+    </header>
+
+    <!-- Employee Information -->
+
+    <section class="info-card">
+
+        <div class="info-row">
+
+            <span>
+
+                الموظف
+
+            </span>
+
+            <strong id="employeeName">
+
+                ...
+
+            </strong>
+
+        </div>
+
+        <div class="info-row">
+
+            <span>
+
+                القسم
+
+            </span>
+
+            <strong id="departmentName">
+
+                ...
+
+            </strong>
+
+        </div>
+
+        <div class="info-row">
+
+            <span>
+
+                الأسبوع
+
+            </span>
+
+            <strong id="weekNumber">
+
+                ...
+
+            </strong>
+
+        </div>
+
+        <div class="info-row">
+
+            <span>
+
+                التاريخ
+
+            </span>
+
+            <strong id="todayDate">
+
+                ...
+
+            </strong>
+
+        </div>
+
+    </section>
+
+    <!-- Upload Window Status -->
+
+    <section
+        id="uploadStatus"
+        class="status-card">
+
+        ...
+
+    </section>
+
+    <!-- Upload -->
+
+    <section
+        id="uploadCard"
+        class="upload-card">
+
+        <label
+            for="pdfFile"
+            class="upload-box">
+
+            <i class="fa-solid fa-file-pdf"></i>
+
+            <h3>
+
+                اختر ملف التقرير
+
+            </h3>
+
+            <span>
+
+                PDF فقط
+
+            </span>
+
+        </label>
+
+        <input
+            type="file"
+            id="pdfFile"
+            accept=".pdf">
+
+        <div
+            id="selectedFile"
+            class="selected-file">
+
+            لم يتم اختيار ملف
+
+        </div>
+
+        <button
+            id="uploadBtn"
+            class="upload-btn">
+
+            رفع التقرير
+
+        </button>
+
+    </section>
+
+</div>
+
+<script src="../../config/config.js"></script>
+
+<script src="../../assets/js/core/api.js"></script>
+
+<script src="../../assets/js/core/app.js"></script>
+
+<script src="../../assets/js/core/auth.js"></script>
+
+<script src="../../assets/js/modules/theme.js"></script>
+
+<script src="../../assets/js/pages/upload-report.js"></script>
+
+</body>
+
+</html>
