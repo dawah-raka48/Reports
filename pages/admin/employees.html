@@ -183,6 +183,176 @@
 
 <script src="../../assets/js/pages/employees.js"></script>
 
+<!-- ==========================================
+     Employee Modal
+========================================== -->
+
+<div class="modal-overlay" id="employeeModal">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <h2 id="modalTitle">
+
+                إضافة موظف
+
+            </h2>
+
+            <button
+                class="close-modal"
+                id="closeModal">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="form-group">
+
+                <label>
+
+                    الاسم الكامل
+
+                </label>
+
+                <input
+                    id="fullName"
+                    type="text">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+
+                    اسم المستخدم
+
+                </label>
+
+                <input
+                    id="username"
+                    type="text">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+
+                    كلمة المرور
+
+                </label>
+
+                <input
+                    id="password"
+                    type="password">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+
+                    القسم
+
+                </label>
+
+                <select id="department">
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+
+                    الصلاحية
+
+                </label>
+
+                <select id="role">
+
+                    <option value="employee">
+
+                        موظف
+
+                    </option>
+
+                    <option value="manager">
+
+                        مدير قسم
+
+                    </option>
+
+                    <option value="owner">
+
+                        مدير النظام
+
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+
+                    الحالة
+
+                </label>
+
+                <select id="isActive">
+
+                    <option value="TRUE">
+
+                        نشط
+
+                    </option>
+
+                    <option value="FALSE">
+
+                        موقوف
+
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button
+                id="saveEmployeeBtn"
+                class="save-btn">
+
+                <i class="fa-solid fa-floppy-disk"></i>
+
+                حفظ
+
+            </button>
+
+            <button
+                id="cancelEmployeeBtn"
+                class="cancel-btn">
+
+                إلغاء
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+    
 </body>
 
 </html>
