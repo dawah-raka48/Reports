@@ -296,7 +296,181 @@ function deleteEmployee(userId) {
 
 }
 
+/* ==========================
+   Employee Modal
+========================== */
 
+const employeeModal = document.getElementById("employeeModal");
+
+const addEmployeeBtn = document.getElementById("addEmployeeBtn");
+
+const closeModalBtn = document.getElementById("closeModal");
+
+const cancelEmployeeBtn = document.getElementById("cancelEmployeeBtn");
+
+const saveEmployeeBtn = document.getElementById("saveEmployeeBtn");
+
+
+/* ==========================
+   Open Modal
+========================== */
+
+addEmployeeBtn.addEventListener("click", () => {
+
+    clearEmployeeForm();
+
+    document.getElementById("modalTitle").textContent = "إضافة موظف";
+
+    employeeModal.classList.add("active");
+
+});
+
+
+/* ==========================
+   Close Modal
+========================== */
+
+function closeEmployeeModal() {
+
+    employeeModal.classList.remove("active");
+
+}
+
+closeModalBtn.addEventListener(
+
+    "click",
+
+    closeEmployeeModal
+
+);
+
+cancelEmployeeBtn.addEventListener(
+
+    "click",
+
+    closeEmployeeModal
+
+);
+
+employeeModal.addEventListener("click",(e)=>{
+
+    if(e.target===employeeModal){
+
+        closeEmployeeModal();
+
+    }
+
+});
+
+
+/* ==========================
+   Clear Form
+========================== */
+
+function clearEmployeeForm(){
+
+    document.getElementById("fullName").value="";
+
+    document.getElementById("username").value="";
+
+    document.getElementById("password").value="";
+
+    document.getElementById("department").selectedIndex=0;
+
+    document.getElementById("role").value="employee";
+
+    document.getElementById("isActive").value="TRUE";
+
+}
+
+
+/* ==========================
+   Save Employee
+========================== */
+
+saveEmployeeBtn.addEventListener(
+
+    "click",
+
+    saveEmployee
+
+);
+
+async function saveEmployee(){
+
+    const fullName=document.getElementById("fullName").value.trim();
+
+    const username=document.getElementById("username").value.trim();
+
+    const password=document.getElementById("password").value.trim();
+
+    const departmentId=document.getElementById("department").value;
+
+    const role=document.getElementById("role").value;
+
+    const isActive=document.getElementById("isActive").value;
+
+    if(
+
+        !fullName ||
+
+        !username ||
+
+        !password ||
+
+        !departmentId
+
+    ){
+
+        alert("يرجى تعبئة جميع الحقول.");
+
+        return;
+
+    }
+
+    const response=
+
+        await ApiService.request(
+
+            "addUser",
+
+            {
+
+                fullName,
+
+                username,
+
+                password,
+
+                departmentId,
+
+                role,
+
+                isActive
+
+            }
+
+        );
+
+    if(
+
+        !response.success ||
+
+        !response.data.success
+
+    ){
+
+        alert("تعذر إضافة الموظف.");
+
+        return;
+
+    }
+
+    closeEmployeeModal();
+
+    loadEmployees();
+
+}
 /* ==========================
    Logout
 ========================== */
