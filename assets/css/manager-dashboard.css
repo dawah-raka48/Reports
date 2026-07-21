@@ -647,3 +647,319 @@
     }
 
 }
+/* ==========================================
+   Employees & Reports Pages
+========================================== */
+
+.page-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+
+}
+
+.list-container{
+
+    display:grid;
+
+    gap:22px;
+
+}
+
+.employee-card,
+.report-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--glass-bg);
+
+    backdrop-filter:blur(var(--blur));
+
+    -webkit-backdrop-filter:blur(var(--blur));
+
+    border:1px solid var(--glass-border);
+
+    border-radius:24px;
+
+    padding:24px;
+
+    transition:.35s;
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.employee-card:hover,
+.report-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.employee-card::before,
+.report-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    left:-80px;
+
+    top:-80px;
+
+    background:rgba(37,99,235,.06);
+
+}
+
+.employee-header,
+.report-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:18px;
+
+}
+
+.employee-name,
+.report-title{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+.employee-info,
+.report-info{
+
+    display:grid;
+
+    gap:12px;
+
+}
+
+.info-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:10px 0;
+
+    border-bottom:1px dashed var(--border);
+
+}
+
+.info-row:last-child{
+
+    border-bottom:none;
+
+}
+
+.info-title{
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+}
+
+.info-value{
+
+    color:var(--text);
+
+    font-weight:600;
+
+}
+
+.status{
+
+    padding:8px 16px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+.status.pending{
+
+    background:rgba(245,158,11,.12);
+
+    color:#f59e0b;
+
+}
+
+.status.approved{
+
+    background:rgba(16,185,129,.12);
+
+    color:#10b981;
+
+}
+
+.status.rejected{
+
+    background:rgba(239,68,68,.12);
+
+    color:#ef4444;
+
+}
+
+.actions{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:22px;
+
+}
+
+.action-btn{
+
+    flex:1;
+
+    min-width:140px;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:14px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:.3s;
+
+    color:#fff;
+
+}
+
+.action-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.action-btn.primary{
+
+    background:var(--primary);
+
+}
+
+.action-btn.success{
+
+    background:#10b981;
+
+}
+
+.action-btn.danger{
+
+    background:#ef4444;
+
+}
+
+.empty-card{
+
+    background:var(--glass-bg);
+
+    border:1px dashed var(--glass-border);
+
+    border-radius:24px;
+
+    padding:70px 25px;
+
+    text-align:center;
+
+}
+
+.empty-card i{
+
+    font-size:58px;
+
+    color:var(--primary);
+
+    margin-bottom:18px;
+
+}
+
+.empty-card h3{
+
+    color:var(--text);
+
+    font-size:26px;
+
+    margin-bottom:10px;
+
+}
+
+.empty-card p{
+
+    color:var(--text-light);
+
+}
+
+@media(max-width:768px){
+
+    .employee-header,
+    .report-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .info-row{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .actions{
+
+        flex-direction:column;
+
+    }
+
+    .action-btn{
+
+        width:100%;
+
+    }
+
+}
