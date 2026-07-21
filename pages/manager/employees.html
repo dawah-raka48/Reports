@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
 
 <head>
@@ -16,160 +15,248 @@ content="width=device-width, initial-scale=1.0">
 
 </title>
 
+<!-- Fonts -->
+
 <link
-rel="stylesheet"
-href="../../assets/css/core/reset.css">
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<!-- Icons -->
 
 <link
 rel="stylesheet"
-href="../../assets/css/core/variables.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<!-- Global CSS -->
 
 <link
 rel="stylesheet"
-href="../../assets/css/core/theme.css">
+href="../../assets/css/variables.css">
 
 <link
 rel="stylesheet"
-href="../../assets/css/core/components.css">
+href="../../assets/css/reset.css">
+
+<link
+rel="stylesheet"
+href="../../assets/css/layout.css">
+
+<link
+rel="stylesheet"
+href="../../assets/css/components.css">
+
+<link
+rel="stylesheet"
+href="../../assets/css/animations.css">
+
+<link
+rel="stylesheet"
+href="../../assets/css/responsive.css">
+
+<link
+rel="stylesheet"
+href="../../assets/css/style.css">
 
 <link
 rel="stylesheet"
 href="../../assets/css/manager-dashboard.css">
 
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
 </head>
 
 <body>
 
-<div class="page">
+<div class="dashboard-wrapper">
 
-<header class="page-header">
+<header class="dashboard-header">
 
-<button
-id="backBtn"
-class="icon-btn">
+<div class="header-left">
 
-<i class="fa-solid fa-arrow-right"></i>
+<img
+src="../../assets/images/logo.png"
+class="header-logo"
+alt="Logo">
 
-</button>
+<div class="header-title">
 
-<div>
-
-<h1>
+<h2>
 
 موظفو القسم
 
-</h1>
+</h2>
 
-<p
-id="departmentName">
+<span>
 
-...
+Weekly Reports System
 
-</p>
+</span>
+
+</div>
+
+</div>
+
+<div class="header-right">
+
+<div class="clock-box">
+
+<i class="fa-regular fa-clock"></i>
+
+<span id="clock">
+
+--:--:--
+
+</span>
+
+</div>
+
+<button
+id="themeToggle"
+class="header-btn">
+
+<i class="fa-solid fa-moon"></i>
+
+</button>
+
+<button
+id="logoutBtn"
+class="header-btn danger">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+</button>
 
 </div>
 
 </header>
 
-<section
-class="stats-row">
+<main class="dashboard">
 
-<div
-class="stat-card">
+<section class="welcome-card">
 
-<span>
+<span class="welcome-text">
 
-عدد الموظفين
+قسم
 
 </span>
 
-<h2
-id="employeesCount">
+<h1 id="departmentName">
 
-0
+...
 
-</h2>
-
-</div>
-
-<div
-class="stat-card">
-
-<span>
-
-رفعوا التقرير
-
-</span>
-
-<h2
-id="submittedCount">
-
-0
-
-</h2>
-
-</div>
-
-<div
-class="stat-card">
-
-<span>
-
-لم يرفعوا
-
-</span>
-
-<h2
-id="missingCount">
-
-0
-
-</h2>
-
-</div>
-
-</section>
-<section class="employees-section">
-
-<div
-id="employeesContainer"
-class="employees-container">
-
-<div class="empty-state">
-
-<i class="fa-solid fa-users"></i>
-
-<h3>
-
-لا يوجد موظفون
-
-</h3>
+</h1>
 
 <p>
 
-لا يوجد موظفون مسجلون في هذا القسم.
+قائمة جميع موظفي القسم
 
 </p>
 
-</div>
+</section>
+<!-- Statistics -->
 
-</div>
+<section class="statistics">
+
+    <div class="stat-card">
+
+        <span>
+
+            إجمالي الموظفين
+
+        </span>
+
+        <h2 id="employeesCount">
+
+            0
+
+        </h2>
+
+    </div>
+
+    <div class="stat-card">
+
+        <span>
+
+            رفعوا التقرير
+
+        </span>
+
+        <h2 id="submittedCount">
+
+            0
+
+        </h2>
+
+    </div>
+
+    <div class="stat-card">
+
+        <span>
+
+            لم يرفعوا
+
+        </span>
+
+        <h2 id="missingCount">
+
+            0
+
+        </h2>
+
+    </div>
 
 </section>
 
+<!-- Employees -->
+
+<section class="reports-container">
+
+    <div
+        id="employeesContainer"
+        class="reports-grid">
+
+        <div class="empty-card">
+
+            <i class="fa-solid fa-users"></i>
+
+            <h3>
+
+                لا يوجد موظفون
+
+            </h3>
+
+            <p>
+
+                سيتم عرض موظفي القسم هنا.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
 </div>
 
-<script src="../../assets/js/core/config.js"></script>
-
-<script src="../../assets/js/core/storage.js"></script>
+<script src="../../config/config.js"></script>
 
 <script src="../../assets/js/core/api.js"></script>
 
+<script src="../../assets/js/core/app.js"></script>
+
 <script src="../../assets/js/core/auth.js"></script>
+
+<script src="../../assets/js/modules/theme.js"></script>
 
 <script src="../../assets/js/pages/manager-employees.js"></script>
 
