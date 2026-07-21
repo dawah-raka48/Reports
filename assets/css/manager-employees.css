@@ -1,0 +1,212 @@
+/* ==========================================
+   Manager Employees
+========================================== */
+
+.page{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:24px;
+
+}
+
+.page-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:24px;
+
+}
+
+.page-header h1{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+.page-header p{
+
+    margin-top:6px;
+
+    color:var(--text-secondary);
+
+}
+
+.icon-btn{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+.stats-row{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(3,1fr);
+
+    gap:20px;
+
+    margin-bottom:28px;
+
+}
+
+.stat-card{
+
+    background:var(--card);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+
+}
+
+.stat-card span{
+
+    display:block;
+
+    color:var(--text-secondary);
+
+    margin-bottom:12px;
+
+}
+
+.stat-card h2{
+
+    font-size:34px;
+
+    color:var(--primary);
+
+}
+/* ==========================
+   Employees
+========================== */
+
+.employees-container{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(auto-fill,minmax(320px,1fr));
+
+    gap:20px;
+
+}
+
+.employee-card{
+
+    background:var(--card);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    transition:.3s;
+
+    border:1px solid var(--border);
+
+}
+
+.employee-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.employee-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.employee-header h3{
+
+    font-size:20px;
+
+    color:var(--text);
+
+}
+
+.employee-body p{
+
+    margin:10px 0;
+
+    color:var(--text-secondary);
+
+}
+
+.status{
+
+    padding:6px 12px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    background:rgba(59,130,246,.12);
+
+    color:#3b82f6;
+
+}
+
+.empty-state{
+
+    text-align:center;
+
+    padding:70px 20px;
+
+}
+
+.empty-state i{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+    color:var(--primary);
+
+}
+
+.empty-state h3{
+
+    margin-bottom:12px;
+
+}
+
+.empty-state p{
+
+    color:var(--text-secondary);
+
+}
