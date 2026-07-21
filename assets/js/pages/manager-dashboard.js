@@ -113,16 +113,16 @@ function initializeButtons(){
         );
 
     document
-        .getElementById("reportsBtn")
-        .addEventListener(
-            "click",
-            ()=>{
+    .getElementById("reportsBtn")
+    .addEventListener(
+        "click",
+        ()=>{
 
-                window.location.href =
-                "manager-reports.html";
+            window.location.href =
+            "reports.html";
 
-            }
-        );
+        }
+    );
 
 }
 /* ==========================
