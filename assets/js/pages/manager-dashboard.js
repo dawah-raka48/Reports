@@ -94,52 +94,37 @@ function updateClock(){
 function initializeButtons(){
 
     document
-
         .getElementById("logoutBtn")
-
         .addEventListener(
-
             "click",
-
             logout
-
         );
 
     document
-
         .getElementById("employeesBtn")
-
         .addEventListener(
-
             "click",
-
             ()=>{
 
-                alert("سيتم إنشاء صفحة موظفي القسم.");
+                window.location.href =
+                "employees.html";
 
             }
-
         );
 
     document
-
         .getElementById("reportsBtn")
-
         .addEventListener(
-
             "click",
-
             ()=>{
 
-                alert("سيتم إنشاء صفحة متابعة التقارير.");
+                window.location.href =
+                "manager-reports.html";
 
             }
-
         );
 
 }
-
-
 /* ==========================
    Load Manager
 ========================== */
