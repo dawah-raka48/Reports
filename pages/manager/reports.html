@@ -3,162 +3,134 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>
-تقارير القسم
-</title>
+    <title>تقارير القسم</title>
 
-<link rel="stylesheet"
-href="../../assets/css/core/variables.css">
+    <!-- Fonts -->
 
-<link rel="stylesheet"
-href="../../assets/css/core/reset.css">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-<link rel="stylesheet"
-href="../../assets/css/core/theme.css">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
-<link rel="stylesheet"
-href="../../assets/css/core/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
-<link rel="stylesheet"
-href="../../assets/css/pages/manager-dashboard.css">
+    <!-- Icons -->
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Global CSS -->
+
+    <link rel="stylesheet" href="../../assets/css/variables.css">
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/animations.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <!-- Page CSS -->
+
+    <link rel="stylesheet"
+          href="../../assets/css/manager-dashboard.css">
 
 </head>
 
 <body>
 
-<div class="page">
+<div class="dashboard-wrapper">
 
-<header class="page-header">
+    <!-- Header -->
 
-<button
-id="backBtn"
-class="icon-btn">
+    <header class="dashboard-header">
 
-<i class="fa-solid fa-arrow-right"></i>
+        <div class="header-left">
 
-</button>
+            <img
+                src="../../assets/images/logo.png"
+                class="header-logo"
+                alt="Logo">
 
-<div>
+            <div class="header-title">
 
-<h1>
+                <h2>
 
-تقارير القسم
+                    تقارير القسم
 
-</h1>
+                </h2>
 
-<p id="departmentName">
+                <span>
 
-...
+                    Weekly Reports System
 
-</p>
+                </span>
 
-</div>
+            </div>
 
-</header>
+        </div>
 
-<section
-class="stats-row">
+        <div class="header-right">
 
-<div class="stat-card">
+            <div class="clock-box">
 
-<span>
+                <i class="fa-regular fa-clock"></i>
 
-إجمالي التقارير
+                <span id="clock">
 
-</span>
+                    --:--:--
 
-<h2
-id="reportsCount">
+                </span>
 
-0
+            </div>
 
-</h2>
+            <button
+                id="themeToggle"
+                class="header-btn">
 
-</div>
+                <i class="fa-solid fa-moon"></i>
 
-<div class="stat-card">
+            </button>
 
-<span>
+            <button
+                id="logoutBtn"
+                class="header-btn danger">
 
-بانتظار المراجعة
+                <i class="fa-solid fa-right-from-bracket"></i>
 
-</span>
+            </button>
 
-<h2
-id="pendingCount">
+        </div>
 
-0
+    </header>
 
-</h2>
+    <main class="dashboard">
 
-</div>
+        <section class="welcome-card">
 
-<div class="stat-card">
+            <span class="welcome-text">
 
-<span>
+                قسم
 
-تم اعتمادها
+            </span>
 
-</span>
+            <h1 id="departmentName">
 
-<h2
-id="approvedCount">
+                ...
 
-0
+            </h1>
 
-</h2>
+            <p>
 
-</div>
+                متابعة تقارير موظفي القسم
 
-</section>
-<section class="reports-section">
+            </p>
 
-<div
-id="reportsContainer"
-class="reports-container">
-
-<div class="empty-state">
-
-<i class="fa-regular fa-folder-open"></i>
-
-<h3>
-
-لا توجد تقارير
-
-</h3>
-
-<p>
-
-لم يتم رفع أي تقارير لهذا القسم حتى الآن.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-</div>
-
-<script src="../../assets/js/core/config.js"></script>
-
-<script src="../../assets/js/core/storage.js"></script>
-
-<script src="../../assets/js/core/api.js"></script>
-
-<script src="../../assets/js/core/auth.js"></script>
-
-<script src="../../assets/js/pages/manager-reports.js"></script>
-
-</body>
-
-</html>
+        </section>
