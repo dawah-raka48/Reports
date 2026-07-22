@@ -14,7 +14,7 @@ const Auth = {
 
         localStorage.removeItem("session");
 
-        window.location.href = "/";
+        window.location.href = "../../index.html";
 
     },
 
@@ -29,6 +29,12 @@ const Auth = {
         }
 
         return JSON.parse(session);
+
+    },
+
+    isLoggedIn() {
+
+        return this.getSession() !== null;
 
     }
 
