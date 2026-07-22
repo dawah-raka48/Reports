@@ -121,23 +121,26 @@ function updateClock(){
 function setupEvents(){
 
     document
-
-        .getElementById(
-
-            "logoutBtn"
-
-        )
-
+        .getElementById("logoutBtn")
         .addEventListener(
-
             "click",
-
             ()=>{
 
                 Auth.logout();
 
             }
+        );
 
+    document
+        .getElementById("backBtn")
+        .addEventListener(
+            "click",
+            ()=>{
+
+                window.location.href =
+                    "dashboard.html";
+
+            }
         );
 
 }
