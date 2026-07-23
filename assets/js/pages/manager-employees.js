@@ -258,7 +258,7 @@ function renderEmployees(){
 
         employee=>{
 
-            container.innerHTML += createEmployeeCard(employee);
+            container.innerHTML += createEmployeeAccordion(employee);
 
         }
 
@@ -266,97 +266,119 @@ function renderEmployees(){
 
 }
 /* ==========================
-   Employee Card
+   Employee Accordion
 ========================== */
 
-function createEmployeeCard(employee){
+function createEmployeeAccordion(employee){
 
     const report = employee.report;
-
-    const status = report
-        ? report.status
-        : "لم يرفع التقرير";
 
     const week = report
         ? report.week
         : "-";
 
-    const button = report
-        ? `
-        <a
-            href="${report.driveUrl}"
-            target="_blank"
-            class="btn-primary">
+    const status = report
+        ? report.status
+        : "لم يرفع التقرير";
 
-            عرض التقرير
+    const uploadDate = report
+        ? report.date
+        : "-";
 
-        </a>
-        `
-        : `
-        <button
-            class="btn-secondary"
-            disabled>
+    const notes =
 
-            لا يوجد تقرير
+        report && report.managerNotes
 
-        </button>
-        `;
+            ? report.managerNotes
+
+            : "لا توجد ملاحظات";
 
     return `
 
-    <div class="employee-card">
+    <div class="employee-accordion">
 
-        <div class="employee-info">
+        <div class="employee-header">
 
-            <h3>
+            <div class="employee-title">
 
-                ${employee.fullName}
+                <h3>
 
-            </h3>
+                    ${employee.fullName}
 
-            <p>
+                </h3>
 
-                ${employee.username}
+                <span>
 
-            </p>
+                    ${week}
 
-        </div>
+                </span>
 
-        <div class="employee-report">
+            </div>
 
-            <span>
-
-                الأسبوع
-
-            </span>
-
-            <strong>
-
-                ${week}
-
-            </strong>
-
-        </div>
-
-        <div class="employee-status">
-
-            <span>
-
-                الحالة
-
-            </span>
-
-            <strong>
+            <div class="employee-status">
 
                 ${status}
 
-            </strong>
+            </div>
+
+            <button
+                class="accordion-toggle">
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
 
         </div>
 
-        <div class="employee-actions">
+        <div class="employee-body">
 
-            ${button}
+            <div class="employee-row">
+
+                <span>
+
+                    اسم المستخدم
+
+                </span>
+
+                <strong>
+
+                    ${employee.username}
+
+                </strong>
+
+            </div>
+
+            <div class="employee-row">
+
+                <span>
+
+                    تاريخ الرفع
+
+                </span>
+
+                <strong>
+
+                    ${uploadDate}
+
+                </strong>
+
+            </div>
+
+            <div class="employee-row">
+
+                <span>
+
+                    ملاحظات المدير
+
+                </span>
+
+                <strong>
+
+                    ${notes}
+
+                </strong>
+
+            </div>
 
         </div>
 
@@ -365,3 +387,4 @@ function createEmployeeCard(employee){
     `;
 
 }
+
