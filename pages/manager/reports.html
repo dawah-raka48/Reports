@@ -111,23 +111,144 @@
 
     </header>
 
-    <main class="dashboard">
+    <!-- Welcome -->
 
-        <section class="welcome-card">
+<section class="welcome-card">
 
-            <span class="welcome-text">
+    <span class="welcome-text">
 
-                قسم
+        قسم
 
-            </span>
+    </span>
 
-            <h1 id="departmentName">
+    <h1 id="departmentName">
 
-                ...
+        ...
 
-            </h1>
+    </h1>
 
-            <p>
+    <p>
+
+        متابعة تقارير موظفي القسم
+
+    </p>
+
+</section>
+
+<!-- Statistics -->
+
+<section class="statistics">
+
+    <div class="stat-card">
+
+        <span>
+
+            إجمالي التقارير
+
+        </span>
+
+        <h2 id="reportsCount">
+
+            0
+
+        </h2>
+
+    </div>
+
+    <div class="stat-card">
+
+        <span>
+
+            بانتظار المراجعة
+
+        </span>
+
+        <h2 id="pendingCount">
+
+            0
+
+        </h2>
+
+    </div>
+
+    <div class="stat-card">
+
+        <span>
+
+            تم اعتمادها
+
+        </span>
+
+        <h2 id="approvedCount">
+
+            0
+
+        </h2>
+
+    </div>
+
+</section>
+
+<!-- Filters -->
+
+<section class="filters">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="بحث باسم الموظف">
+
+    <select id="weekFilter">
+
+        <option value="">
+
+            جميع الأسابيع
+
+        </option>
+
+    </select>
+
+    <select id="statusFilter">
+
+        <option value="">
+
+            جميع الحالات
+
+        </option>
+
+        <option value="Pending">
+
+            بانتظار المراجعة
+
+        </option>
+
+        <option value="Approved">
+
+            تم الاعتماد
+
+        </option>
+
+        <option value="Rejected">
+
+            مرفوض
+
+        </option>
+
+    </select>
+
+</section>
+
+<!-- Reports -->
+
+<section class="page-content">
+
+    <div
+        id="reportsContainer"
+        class="list-container">
+
+    </div>
+
+</section>
 
                 متابعة تقارير موظفي القسم
 
