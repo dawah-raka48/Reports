@@ -352,20 +352,14 @@ function createEmployeeAccordion(employee){
         : "-";
 
     const notes =
-
         report && report.managerNotes
-
             ? report.managerNotes
-
             : "لا توجد";
 
     const statusClass =
-
         report
-
             ? report.status.toLowerCase()
-
-            : "rejected";
+            : "pending";
 
     return `
 
@@ -389,72 +383,82 @@ function createEmployeeAccordion(employee){
 
             </div>
 
-            <span class="status ${statusClass}">
+            <div style="display:flex;align-items:center;gap:12px;">
 
-                ${status}
+                <span class="status ${statusClass}">
 
-            </span>
+                    ${status}
+
+                </span>
+
+                <i class="fa-solid fa-chevron-down accordion-icon"></i>
+
+            </div>
 
         </div>
 
-        <div class="employee-info">
+        <div class="employee-details" style="display:none;">
 
-            <div class="info-row">
+            <div class="employee-info">
 
-                <span class="info-title">
+                <div class="info-row">
 
-                    اسم المستخدم
+                    <span class="info-title">
 
-                </span>
+                        اسم المستخدم
 
-                <span class="info-value">
+                    </span>
 
-                    ${employee.username}
+                    <span class="info-value">
 
-                </span>
+                        ${employee.username}
 
-            </div>
+                    </span>
 
-            <div class="info-row">
+                </div>
 
-                <span class="info-title">
+                <div class="info-row">
 
-                    تاريخ الرفع
+                    <span class="info-title">
 
-                </span>
+                        تاريخ الرفع
 
-                <span class="info-value">
+                    </span>
 
-                    ${uploadDate}
+                    <span class="info-value">
 
-                </span>
+                        ${uploadDate}
 
-            </div>
+                    </span>
 
-            <div class="info-row">
+                </div>
 
-                <span class="info-title">
+                <div class="info-row">
 
-                    ملاحظات المدير
+                    <span class="info-title">
 
-                </span>
+                        ملاحظات المدير
 
-                <span class="info-value">
+                    </span>
 
-                    ${notes}
+                    <span class="info-value">
 
-                </span>
+                        ${notes}
 
-            </div>
+                    </span>
 
-            <div class="actions">
+                </div>
 
-                <button
-                    class="action-btn primary">
+                <div class="actions">
 
-                    عرض التفاصيل
+                    <button
+                        class="action-btn primary">
 
-                </button>
+                        عرض التفاصيل
+
+                    </button>
+
+                </div>
 
             </div>
 
@@ -465,7 +469,6 @@ function createEmployeeAccordion(employee){
     `;
 
 }
-
 /* ==========================
    Accordion
 ========================== */
@@ -473,35 +476,35 @@ function createEmployeeAccordion(employee){
 function initializeAccordion(){
 
     document
+        .querySelectorAll(".employee-card")
+        .forEach(card=>{
 
-        .querySelectorAll(
+            const header =
+                card.querySelector(".employee-header");
 
-            ".employee-header"
+            const body =
+                card.querySelector(".employee-details");
 
-        )
+            const icon =
+                card.querySelector(".accordion-icon");
 
-        .forEach(
+            header.onclick = ()=>{
 
-            header=>{
+                const opened =
+                    body.style.display === "block";
 
-                header.onclick = ()=>{
+                body.style.display =
+                    opened
+                        ? "none"
+                        : "block";
 
-                    header
+                icon.style.transform =
+                    opened
+                        ? "rotate(0deg)"
+                        : "rotate(180deg)";
 
-                        .parentElement
+            };
 
-                        .classList
-
-                        .toggle(
-
-                            "open"
-
-                        );
-
-                };
-
-            }
-
-        );
+        });
 
 }
