@@ -263,7 +263,7 @@ function renderEmployees(){
         }
 
     );
-
+initializeAccordion();
 }
 /* ==========================
    Employee Accordion
@@ -387,4 +387,42 @@ function createEmployeeAccordion(employee){
     `;
 
 }
+/* ==========================
+   Accordion
+========================== */
 
+function initializeAccordion(){
+
+    document
+
+        .querySelectorAll(
+
+            ".employee-header"
+
+        )
+
+        .forEach(
+
+            header=>{
+
+                header.onclick = ()=>{
+
+                    header
+
+                        .parentElement
+
+                        .classList
+
+                        .toggle(
+
+                            "open"
+
+                        );
+
+                };
+
+            }
+
+        );
+
+}
