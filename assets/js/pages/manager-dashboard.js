@@ -186,7 +186,7 @@ async function loadStatistics(){
 
     const response = await ApiService.request(
 
-        "getDepartmentEmployees",
+        "getManagerDashboard",
 
         {
 
@@ -213,6 +213,22 @@ async function loadStatistics(){
         ).textContent =
 
             response.data.totalEmployees;
+
+        document.getElementById(
+
+            "reportsCount"
+
+        ).textContent =
+
+            response.data.totalReports;
+
+        document.getElementById(
+
+            "lateCount"
+
+        ).textContent =
+
+            response.data.lateEmployees;
 
     }
 
