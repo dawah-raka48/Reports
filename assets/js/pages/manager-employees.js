@@ -1,5 +1,6 @@
 /* ==========================================
    MANAGER EMPLOYEES
+   Weekly Reports System
 ========================================== */
 
 let session = null;
@@ -11,30 +12,19 @@ let employees = [];
 ========================== */
 
 document.addEventListener(
-
     "DOMContentLoaded",
-
     initialize
-
 );
 
-async function initialize(){
+async function initialize() {
 
     Theme.init();
 
     session = Auth.getSession();
 
-    if(
+    if (!session || session.role !== "manager") {
 
-        !session ||
-
-        session.role !== "manager"
-
-    ){
-
-        window.location.href =
-
-            "../../index.html";
+        window.location.href = "../../index.html";
 
         return;
 
@@ -54,15 +44,11 @@ async function initialize(){
    Header
 ========================== */
 
-function loadHeader(){
+function loadHeader() {
 
     document.getElementById(
-
         "departmentName"
-
-    ).textContent =
-
-        session.departmentName;
+    ).textContent = session.departmentName;
 
 }
 
@@ -70,47 +56,32 @@ function loadHeader(){
    Clock
 ========================== */
 
-function startClock(){
+function startClock() {
 
     updateClock();
 
     setInterval(
-
         updateClock,
-
         1000
-
     );
 
 }
 
-function updateClock(){
+function updateClock() {
 
     const now = new Date();
 
     document.getElementById(
-
         "clock"
-
-    ).textContent =
-
-        now.toLocaleTimeString(
-
-            "ar-SA",
-
-            {
-
-                hour:"2-digit",
-
-                minute:"2-digit",
-
-                second:"2-digit",
-
-                hour12:true
-
-            }
-
-        );
+    ).textContent = now.toLocaleTimeString(
+        "ar-SA",
+        {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true
+        }
+    );
 
 }
 
@@ -118,63 +89,39 @@ function updateClock(){
    Events
 ========================== */
 
-function bindEvents(){
+function bindEvents() {
 
     document
-
-        .getElementById(
-
-            "logoutBtn"
-
-        )
-
+        .getElementById("logoutBtn")
         .addEventListener(
-
             "click",
-
-            ()=>{
-
-                Auth.logout();
-
-            }
-
+            () => Auth.logout()
         );
 
 }
+
 /* ==========================
    Load Employees
 ========================== */
 
-async function loadEmployees(){
+async function loadEmployees() {
 
-    try{
+    try {
 
         const response = await ApiService.request(
-
             "getDepartmentEmployeesWithReports",
-
             {
-
-                departmentId:
-
-                    session.departmentId
-
+                departmentId: session.departmentId
             }
-
         );
 
-        if(
-
+        if (
             !response.success ||
-
             !response.data.success
-
-        ){
+        ) {
 
             console.error(
-
                 response.data.message
-
             );
 
             return;
@@ -182,7 +129,6 @@ async function loadEmployees(){
         }
 
         employees =
-
             response.data.employees || [];
 
         updateStatistics();
@@ -191,118 +137,87 @@ async function loadEmployees(){
 
     }
 
-    catch(error){
+    catch (error) {
 
         console.error(error);
 
     }
 
 }
-
 /* ==========================
    Statistics
 ========================== */
 
-function updateStatistics(){
+function updateStatistics() {
 
-    const totalEmployees =
-
-        employees.length;
+    const totalEmployees = employees.length;
 
     let submitted = 0;
 
     let missing = 0;
 
-    employees.forEach(
+    employees.forEach(employee => {
 
-        employee=>{
+        if (employee.report) {
 
-            if(
+            submitted++;
 
-                employee.report
+        } else {
 
-            ){
-
-                submitted++;
-
-            }
-
-            else{
-
-                missing++;
-
-            }
+            missing++;
 
         }
 
-    );
+    });
 
     document.getElementById(
-
         "employeesCount"
-
-    ).textContent =
-
-        totalEmployees;
+    ).textContent = totalEmployees;
 
     document.getElementById(
-
         "submittedCount"
-
-    ).textContent =
-
-        submitted;
+    ).textContent = submitted;
 
     document.getElementById(
-
         "missingCount"
-
-    ).textContent =
-
-        missing;
+    ).textContent = missing;
 
 }
+
 /* ==========================
    Render Employees
 ========================== */
 
-function renderEmployees(){
+function renderEmployees() {
 
     const container =
-
         document.getElementById(
-
             "employeesContainer"
-
         );
 
-    if(
+    container.innerHTML = "";
 
-        employees.length === 0
+    if (employees.length === 0) {
 
-    ){
+        container.innerHTML = `
 
-        container.innerHTML =
+            <div class="empty-card">
 
-        `
+                <i class="fa-solid fa-users"></i>
 
-        <div class="empty-card">
+                <h3>
 
-            <i class="fa-solid fa-users"></i>
+                    لا يوجد موظفون
 
-            <h3>
+                </h3>
 
-                لا يوجد موظفون
+                <p>
 
-            </h3>
+                    لا يوجد موظفون في هذا القسم.
 
-            <p>
+                </p>
 
-                لا يوجد موظفون داخل هذا القسم.
-
-            </p>
-
-        </div>
+            </div>
 
         `;
 
@@ -310,32 +225,26 @@ function renderEmployees(){
 
     }
 
-    container.innerHTML = "";
+    employees.forEach(employee => {
 
-    employees.forEach(
+        container.insertAdjacentHTML(
 
-        employee=>{
+            "beforeend",
 
-            container.insertAdjacentHTML(
+            createEmployeeCard(employee)
 
-                "beforeend",
+        );
 
-                createEmployeeAccordion(employee)
-
-            );
-
-        }
-
-    );
+    });
 
     initializeAccordion();
 
 }
-
 /* ==========================
-   Employee Accordion
+   Employee Card
 ========================== */
-function createEmployeeAccordion(employee){
+
+function createEmployeeCard(employee) {
 
     const report = employee.report;
 
@@ -348,62 +257,22 @@ function createEmployeeAccordion(employee){
         : "لم يرفع التقرير";
 
     const uploadDate = report
-        ? report.date
+        ? (report.date || "-")
         : "-";
 
-    const notes =
-        report && report.managerNotes
-            ? report.managerNotes
-            : "لا توجد";
+    const notes = report
+        ? (report.managerNotes || "لا توجد")
+        : "لا توجد";
 
-    const statusClass =
-        report
-            ? report.status.toLowerCase()
-            : "pending";
+    const statusClass = getStatusClass(status);
 
     return `
 
-    <div class="employee-header">
+    <div class="employee-card">
 
-    <div>
+        <div class="employee-header">
 
-        <div class="employee-name">
-
-            ${employee.fullName}
-
-        </div>
-
-        <div class="info-title">
-
-            الأسبوع ${week}
-
-        </div>
-
-    </div>
-
-    <div style="display:flex;align-items:center;gap:12px;">
-
-        <span class="status ${statusClass}">
-<button
-class="action-btn primary toggle-btn">
-
-عرض التفاصيل
-
-</button>
-            ${status}
-
-        </span>
-
-        <button
-            class="action-btn primary toggle-btn">
-
-            عرض التفاصيل
-
-        </button>
-
-    </div>
-
-</div>
+            <div>
 
                 <div class="employee-name">
 
@@ -411,15 +280,15 @@ class="action-btn primary toggle-btn">
 
                 </div>
 
-                <div class="employee-week">
+                <div class="info-title">
 
-                    ${week}
+                    الأسبوع ${week}
 
                 </div>
 
             </div>
 
-            <div style="display:flex;align-items:center;gap:12px;">
+            <div class="actions">
 
                 <span class="status ${statusClass}">
 
@@ -427,12 +296,20 @@ class="action-btn primary toggle-btn">
 
                 </span>
 
+                <button
+                    class="action-btn primary toggle-btn">
+
+                    عرض التفاصيل
+
+                </button>
 
             </div>
 
         </div>
 
-        <div class="employee-details" style="display:none;">
+        <div
+            class="employee-details"
+            style="display:none;">
 
             <div class="employee-info">
 
@@ -484,17 +361,6 @@ class="action-btn primary toggle-btn">
 
                 </div>
 
-                <div class="actions">
-
-                    <button
-                        class="action-btn primary">
-
-                        عرض التفاصيل
-
-                    </button>
-
-                </div>
-
             </div>
 
         </div>
@@ -504,66 +370,99 @@ class="action-btn primary toggle-btn">
     `;
 
 }
+
+/* ==========================
+   Status Class
+========================== */
+
+function getStatusClass(status){
+
+    const value = String(status).toLowerCase();
+
+    if(
+        value.includes("approved")
+        ||
+        value.includes("اعتماد")
+    ){
+
+        return "approved";
+
+    }
+
+    if(
+        value.includes("rejected")
+        ||
+        value.includes("رفض")
+    ){
+
+        return "rejected";
+
+    }
+
+    if(
+        value.includes("pending")
+        ||
+        value.includes("قيد")
+    ){
+
+        return "pending";
+
+    }
+
+    return "pending";
+
+}
 /* ==========================
    Accordion
 ========================== */
 
-function initializeAccordion(){
+function initializeAccordion() {
 
-    document
+    const buttons = document.querySelectorAll(".toggle-btn");
 
-        .querySelectorAll(
+    buttons.forEach(button => {
 
-            ".toggle-btn"
+        button.addEventListener("click", () => {
 
-        )
+            const currentCard =
+                button.closest(".employee-card");
 
-        .forEach(
+            const currentBody =
+                currentCard.querySelector(".employee-details");
 
-            button=>{
+            const isOpen =
+                currentBody.style.display === "block";
 
-                button.onclick=()=>{
+            /* إغلاق جميع البطاقات */
 
-                    const card=
+            document
+                .querySelectorAll(".employee-details")
+                .forEach(body => {
 
-                        button.closest(
+                    body.style.display = "none";
 
-                            ".employee-card"
+                });
 
-                        );
+            document
+                .querySelectorAll(".toggle-btn")
+                .forEach(btn => {
 
-                    const body=
+                    btn.textContent = "عرض التفاصيل";
 
-                        card.querySelector(
+                });
 
-                            ".employee-details"
+            /* إذا كانت البطاقة مغلقة افتحها */
 
-                        );
+            if (!isOpen) {
 
-                    if(
+                currentBody.style.display = "block";
 
-                        body.style.display==="block"
-
-                    ){
-
-                        body.style.display="none";
-
-                        button.textContent="عرض التفاصيل";
-
-                    }
-
-                    else{
-
-                        body.style.display="block";
-
-                        button.textContent="إخفاء التفاصيل";
-
-                    }
-
-                };
+                button.textContent = "إخفاء التفاصيل";
 
             }
 
-        );
+        });
+
+    });
 
 }
