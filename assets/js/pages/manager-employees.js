@@ -149,3 +149,152 @@ function logout(){
         "../../index.html";
 
 }
+/* ==========================
+   Load Employees
+========================== */
+
+async function loadEmployees(){
+
+    const response = await ApiService.request(
+
+        "getDepartmentEmployees",
+
+        {
+
+            departmentId:
+
+                session.departmentId
+
+        }
+
+    );
+
+    if(
+
+        response.success &&
+
+        response.data.success
+
+    ){
+
+        employees =
+
+            response.data.employees;
+
+        renderEmployees();
+
+    }
+
+}
+/* ==========================
+   Render Employees
+========================== */
+
+function renderEmployees(){
+
+    const container =
+
+        document.getElementById(
+
+            "employeesContainer"
+
+        );
+
+    document.getElementById(
+
+        "employeesCount"
+
+    ).textContent =
+
+        employees.length;
+
+    document.getElementById(
+
+        "submittedCount"
+
+    ).textContent =
+
+        "0";
+
+    document.getElementById(
+
+        "missingCount"
+
+    ).textContent =
+
+        employees.length;
+
+    if(
+
+        employees.length === 0
+
+    ){
+
+        container.innerHTML =
+
+        `
+
+        <div class="empty-card">
+
+            <i class="fa-solid fa-users"></i>
+
+            <h3>
+
+                لا يوجد موظفون
+
+            </h3>
+
+        </div>
+
+        `;
+
+        return;
+
+    }
+
+    container.innerHTML = "";
+
+    employees.forEach(
+
+        employee=>{
+
+            container.innerHTML += createEmployeeCard(employee);
+
+        }
+
+    );
+
+}
+/* ==========================
+   Employee Card
+========================== */
+
+function createEmployeeCard(employee){
+
+    return `
+
+    <div class="stat-card">
+
+        <h3>
+
+            ${employee.fullName}
+
+        </h3>
+
+        <p>
+
+            ${employee.username}
+
+        </p>
+
+        <span>
+
+            موظف
+
+        </span>
+
+    </div>
+
+    `;
+
+}
