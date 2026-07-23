@@ -157,7 +157,7 @@ async function loadEmployees(){
 
     const response = await ApiService.request(
 
-        "getDepartmentEmployees",
+        "getDepartmentEmployeesWithReports",
 
         {
 
@@ -271,27 +271,94 @@ function renderEmployees(){
 
 function createEmployeeCard(employee){
 
+    const report = employee.report;
+
+    const status = report
+        ? report.status
+        : "لم يرفع التقرير";
+
+    const week = report
+        ? report.week
+        : "-";
+
+    const button = report
+        ? `
+        <a
+            href="${report.driveUrl}"
+            target="_blank"
+            class="btn-primary">
+
+            عرض التقرير
+
+        </a>
+        `
+        : `
+        <button
+            class="btn-secondary"
+            disabled>
+
+            لا يوجد تقرير
+
+        </button>
+        `;
+
     return `
 
-    <div class="stat-card">
+    <div class="employee-card">
 
-        <h3>
+        <div class="employee-info">
 
-            ${employee.fullName}
+            <h3>
 
-        </h3>
+                ${employee.fullName}
 
-        <p>
+            </h3>
 
-            ${employee.username}
+            <p>
 
-        </p>
+                ${employee.username}
 
-        <span>
+            </p>
 
-            موظف
+        </div>
 
-        </span>
+        <div class="employee-report">
+
+            <span>
+
+                الأسبوع
+
+            </span>
+
+            <strong>
+
+                ${week}
+
+            </strong>
+
+        </div>
+
+        <div class="employee-status">
+
+            <span>
+
+                الحالة
+
+            </span>
+
+            <strong>
+
+                ${status}
+
+            </strong>
+
+        </div>
+
+        <div class="employee-actions">
+
+            ${button}
+
+        </div>
 
     </div>
 
