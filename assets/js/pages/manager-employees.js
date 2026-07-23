@@ -363,11 +363,47 @@ function createEmployeeAccordion(employee){
 
     return `
 
-    <div class="employee-card">
+    <div class="employee-header">
 
-        <div class="employee-header">
+    <div>
 
-            <div>
+        <div class="employee-name">
+
+            ${employee.fullName}
+
+        </div>
+
+        <div class="info-title">
+
+            الأسبوع ${week}
+
+        </div>
+
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;">
+
+        <span class="status ${statusClass}">
+<button
+class="action-btn primary toggle-btn">
+
+عرض التفاصيل
+
+</button>
+            ${status}
+
+        </span>
+
+        <button
+            class="action-btn primary toggle-btn">
+
+            عرض التفاصيل
+
+        </button>
+
+    </div>
+
+</div>
 
                 <div class="employee-name">
 
@@ -391,7 +427,6 @@ function createEmployeeAccordion(employee){
 
                 </span>
 
-                <i class="fa-solid fa-chevron-down accordion-icon"></i>
 
             </div>
 
@@ -476,35 +511,59 @@ function createEmployeeAccordion(employee){
 function initializeAccordion(){
 
     document
-        .querySelectorAll(".employee-card")
-        .forEach(card=>{
 
-            const header =
-                card.querySelector(".employee-header");
+        .querySelectorAll(
 
-            const body =
-                card.querySelector(".employee-details");
+            ".toggle-btn"
 
-            const icon =
-                card.querySelector(".accordion-icon");
+        )
 
-            header.onclick = ()=>{
+        .forEach(
 
-                const opened =
-                    body.style.display === "block";
+            button=>{
 
-                body.style.display =
-                    opened
-                        ? "none"
-                        : "block";
+                button.onclick=()=>{
 
-                icon.style.transform =
-                    opened
-                        ? "rotate(0deg)"
-                        : "rotate(180deg)";
+                    const card=
 
-            };
+                        button.closest(
 
-        });
+                            ".employee-card"
+
+                        );
+
+                    const body=
+
+                        card.querySelector(
+
+                            ".employee-details"
+
+                        );
+
+                    if(
+
+                        body.style.display==="block"
+
+                    ){
+
+                        body.style.display="none";
+
+                        button.textContent="عرض التفاصيل";
+
+                    }
+
+                    else{
+
+                        body.style.display="block";
+
+                        button.textContent="إخفاء التفاصيل";
+
+                    }
+
+                };
+
+            }
+
+        );
 
 }
