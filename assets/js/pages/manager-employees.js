@@ -335,34 +335,21 @@ function renderEmployees(){
 /* ==========================
    Employee Accordion
 ========================== */
-
 function createEmployeeAccordion(employee){
 
     const report = employee.report;
 
-    const week =
+    const week = report
+        ? report.week
+        : "-";
 
-        report
+    const status = report
+        ? report.status
+        : "لم يرفع التقرير";
 
-            ? report.week
-
-            : "-";
-
-    const status =
-
-        report
-
-            ? report.status
-
-            : "لم يرفع التقرير";
-
-    const uploadDate =
-
-        report
-
-            ? report.date
-
-            : "-";
+    const uploadDate = report
+        ? report.date
+        : "-";
 
     const notes =
 
@@ -378,101 +365,102 @@ function createEmployeeAccordion(employee){
 
             ? report.status.toLowerCase()
 
-            : "missing";
+            : "rejected";
 
     return `
 
-    <article class="employee-item">
+    <div class="employee-card">
 
         <div class="employee-header">
 
-            <div class="employee-info">
+            <div>
 
-                <h3 class="employee-name">
+                <div class="employee-name">
 
                     ${employee.fullName}
 
-                </h3>
+                </div>
 
-                <span class="employee-week">
+                <div class="employee-week">
 
                     ${week}
+
+                </div>
+
+            </div>
+
+            <span class="status ${statusClass}">
+
+                ${status}
+
+            </span>
+
+        </div>
+
+        <div class="employee-info">
+
+            <div class="info-row">
+
+                <span class="info-title">
+
+                    اسم المستخدم
+
+                </span>
+
+                <span class="info-value">
+
+                    ${employee.username}
 
                 </span>
 
             </div>
 
-            <div class="employee-status ${statusClass}">
+            <div class="info-row">
 
-                ${status}
+                <span class="info-title">
+
+                    تاريخ الرفع
+
+                </span>
+
+                <span class="info-value">
+
+                    ${uploadDate}
+
+                </span>
 
             </div>
 
-            <div class="employee-arrow">
+            <div class="info-row">
 
-                <i class="fa-solid fa-chevron-down"></i>
+                <span class="info-title">
+
+                    ملاحظات المدير
+
+                </span>
+
+                <span class="info-value">
+
+                    ${notes}
+
+                </span>
 
             </div>
 
-        </div>
+            <div class="actions">
 
-        <div class="employee-body">
+                <button
+                    class="action-btn primary">
 
-            <div class="info-grid">
+                    عرض التفاصيل
 
-                <div class="info-card">
-
-                    <div class="info-title">
-
-                        اسم المستخدم
-
-                    </div>
-
-                    <div class="info-value">
-
-                        ${employee.username}
-
-                    </div>
-
-                </div>
-
-                <div class="info-card">
-
-                    <div class="info-title">
-
-                        تاريخ الرفع
-
-                    </div>
-
-                    <div class="info-value">
-
-                        ${uploadDate}
-
-                    </div>
-
-                </div>
-
-                <div class="info-card">
-
-                    <div class="info-title">
-
-                        ملاحظات المدير
-
-                    </div>
-
-                    <div class="info-value">
-
-                        ${notes}
-
-                    </div>
-
-                </div>
+                </button>
 
             </div>
 
         </div>
 
-    </article>
+    </div>
 
     `;
 
