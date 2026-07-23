@@ -1,5 +1,5 @@
 /* ==========================================
-   Manager Employees
+   MANAGER EMPLOYEES
 ========================================== */
 
 let session = null;
@@ -42,13 +42,14 @@ async function initialize(){
 
     startClock();
 
-    setupEvents();
+    bindEvents();
 
     loadHeader();
 
     await loadEmployees();
 
 }
+
 /* ==========================
    Header
 ========================== */
@@ -112,11 +113,12 @@ function updateClock(){
         );
 
 }
+
 /* ==========================
    Events
 ========================== */
 
-function setupEvents(){
+function bindEvents(){
 
     document
 
@@ -130,296 +132,9 @@ function setupEvents(){
 
             "click",
 
-            logout
+            ()=>{
 
-        );
-
-}
-
-function logout(){
-
-    localStorage.removeItem(
-
-        "session"
-
-    );
-
-    window.location.href =
-
-        "../../index.html";
-
-}
-/* ==========================
-   Load Employees
-========================== */
-
-async function loadEmployees(){
-
-    const response = await ApiService.request(
-
-        "getDepartmentEmployeesWithReports",
-
-        {
-
-            departmentId:
-
-                session.departmentId
-
-        }
-
-    );
-
-    if(
-
-        response.success &&
-
-        response.data.success
-
-    ){
-
-        employees =
-
-            response.data.employees;
-
-        renderEmployees();
-
-    }
-
-}
-/* ==========================
-   Render Employees
-========================== */
-
-function renderEmployees(){
-
-    const container =
-
-        document.getElementById(
-
-            "employeesContainer"
-
-        );
-
-    document.getElementById(
-
-        "employeesCount"
-
-    ).textContent =
-
-        employees.length;
-
-    document.getElementById(
-
-        "submittedCount"
-
-    ).textContent =
-
-        "0";
-
-    document.getElementById(
-
-        "missingCount"
-
-    ).textContent =
-
-        employees.length;
-
-    if(
-
-        employees.length === 0
-
-    ){
-
-        container.innerHTML =
-
-        `
-
-        <div class="empty-card">
-
-            <i class="fa-solid fa-users"></i>
-
-            <h3>
-
-                لا يوجد موظفون
-
-            </h3>
-
-        </div>
-
-        `;
-
-        return;
-
-    }
-
-    container.innerHTML = "";
-
-    employees.forEach(
-
-        employee=>{
-
-            container.innerHTML += createEmployeeAccordion(employee);
-
-        }
-
-    );
-initializeAccordion();
-}
-/* ==========================
-   Employee Accordion
-========================== */
-
-function createEmployeeAccordion(employee){
-
-    const report = employee.report;
-
-    const week = report
-        ? report.week
-        : "-";
-
-    const status = report
-        ? report.status
-        : "لم يرفع التقرير";
-
-    const uploadDate = report
-        ? report.date
-        : "-";
-
-    const notes =
-
-        report && report.managerNotes
-
-            ? report.managerNotes
-
-            : "لا توجد ملاحظات";
-
-    return `
-
-    <div class="employee-accordion">
-
-        <div class="employee-header">
-
-            <div class="employee-title">
-
-                <h3>
-
-                    ${employee.fullName}
-
-                </h3>
-
-                <span>
-
-                    ${week}
-
-                </span>
-
-            </div>
-
-            <div class="employee-status">
-
-                ${status}
-
-            </div>
-
-            <button
-                class="accordion-toggle">
-
-                <i class="fa-solid fa-chevron-down"></i>
-
-            </button>
-
-        </div>
-
-        <div class="employee-body">
-
-            <div class="employee-row">
-
-                <span>
-
-                    اسم المستخدم
-
-                </span>
-
-                <strong>
-
-                    ${employee.username}
-
-                </strong>
-
-            </div>
-
-            <div class="employee-row">
-
-                <span>
-
-                    تاريخ الرفع
-
-                </span>
-
-                <strong>
-
-                    ${uploadDate}
-
-                </strong>
-
-            </div>
-
-            <div class="employee-row">
-
-                <span>
-
-                    ملاحظات المدير
-
-                </span>
-
-                <strong>
-
-                    ${notes}
-
-                </strong>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    `;
-
-}
-/* ==========================
-   Accordion
-========================== */
-
-function initializeAccordion(){
-
-    document
-
-        .querySelectorAll(
-
-            ".employee-header"
-
-        )
-
-        .forEach(
-
-            header=>{
-
-                header.onclick = ()=>{
-
-                    header
-
-                        .parentElement
-
-                        .classList
-
-                        .toggle(
-
-                            "open"
-
-                        );
-
-                };
+                Auth.logout();
 
             }
 
