@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initializeButtons();
 
     loadManager();
+   loadStatistics();
 
 });
 
@@ -169,5 +170,50 @@ function logout(){
     );
 
     window.location.href="../../index.html";
+
+}
+/* ==========================
+   Statistics
+========================== */
+
+async function loadStatistics(){
+
+    const session = JSON.parse(
+
+        localStorage.getItem("session")
+
+    );
+
+    const response = await ApiService.request(
+
+        "getDepartmentEmployees",
+
+        {
+
+            departmentId:
+
+                session.departmentId
+
+        }
+
+    );
+
+    if(
+
+        response.success &&
+
+        response.data.success
+
+    ){
+
+        document.getElementById(
+
+            "employeesCount"
+
+        ).textContent =
+
+            response.data.totalEmployees;
+
+    }
 
 }
